@@ -26,5 +26,5 @@ class BertSLPredictor(Predictor):
     def predict_json(self, input: JsonDict) -> JsonDict:
         input_instance = self._json_to_instance(input)
         out_dict = self.predict_instance(input_instance)
-        result = out_dict['tags']
+        result = out_dict['pred']
         return result

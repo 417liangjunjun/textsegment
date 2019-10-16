@@ -47,14 +47,16 @@ class BertSlTaggerModel(Model):
         embeded_text = self._text_field_embedder(text)
         logits = self._labels_predictor(embeded_text)
         mask = util.get_text_field_mask(text)
-        predicted_probability = torch.sigmoid(logits.cpu())
+        predicted_probability = torch.argmax(logits,-1)
+        output_dict = {"logits": logits, "mask": mask,
+                       "pred": predicted_probability}
         if labels is not None:
             # print(metadata)
             loss = util.sequence_cross_entropy_with_logits(logits, labels, mask)
             for metric in self.metrics.values():
                 metric(logits, labels, mask)
-        output_dict = {"logits": logits , "mask": mask, "tags": labels,
-                       "probabilities": predicted_probability,"loss":loss}
+            output_dict["loss"] = loss
+            output_dict["tags"] = labels
         return output_dict
 
     @overrides
