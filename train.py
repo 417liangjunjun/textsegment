@@ -13,8 +13,9 @@ from allennlp.common.util import import_submodules
 
 import_submodules('textsegment.library')
 
-
+#配置文件的位置
 CONFIG_PATH = 'textsegment/library/config/bert_sl_tagger.jsonnet'
+#生成模型的存放位置
 SERIALIZATION_DIR = './model'
 
 train_model_from_file(parameter_filename=CONFIG_PATH,

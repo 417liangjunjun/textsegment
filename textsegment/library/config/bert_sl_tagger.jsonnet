@@ -4,14 +4,16 @@
         "token_indexers": {
             "bert": {
                 "type": "bert-pretrained",
-                "pretrained_model": "/data/nfsdata/nlp/BERT_BASE_DIR/chinese_L-12_H-768_A-12/",
+                "pretrained_model": "~/chinese_L-12_H-768_A-12/",
+                // 将bert模型地址改为相应的地址
                 "do_lowercase": true,
                 "use_starting_offsets": false
             }
         },
     },
-  "train_data_path": "/home/liangjunjun/textsegment/textsegment/data/train.txt",
-  "validation_data_path": "/home/liangjunjun/textsegment/textsegment/data/dev.txt",
+  "train_data_path": "~/textsegment/textsegment/data/train.txt",
+  "validation_data_path": "~/textsegment/textsegment/data/dev.txt",
+  // 将训练数据和验证数据地址改为相应的地址
     "model": {
         "type": "bert_sl_tagger",
         "text_field_embedder": {
@@ -22,7 +24,8 @@
             "token_embedders": {
                 "bert": {
                     "type": "bert-pretrained",
-                    "pretrained_model": "/data/nfsdata/nlp/BERT_BASE_DIR/chinese_L-12_H-768_A-12/",
+                    "pretrained_model": "~/chinese_L-12_H-768_A-12/",
+                    // 将bert模型地址改为相应的地址
                     "requires_grad": true,
                     "top_layer_only": true
                 }
