@@ -21,7 +21,7 @@
             └─metrics \\自定义评价指标
 ```
 
-# 数据说明
+## 数据说明
 利用`preprocess/process_data.py`将分词的数据转化为下列格式
 ```
 原始切分数据
@@ -30,19 +30,19 @@
 心功不全心功三级<sep>3	5	6
 ```
 
-# 运行脚本
-## 安装依赖
+## 运行脚本
+### 安装依赖
 `pip install -r requirements.txt`
 
-## 下载bert模型
+### 下载bert模型
 点击[这里](https://pan.baidu.com/s/1KBNNygpDlLeO7dvKB79zTg)(提取码aup8)
 下载预训练好的bert模型。
 
-## 修改配置文件  
+### 修改配置文件  
 训练数据地址，bert模型地址，训练器，学习率等参数均写在`textsegment/library/config/bert_sl_tagger.jsonnet`中
 ,需要根据实际情况对其进行修改
 
-## 训练模型
+### 训练模型
 直接运行`train.py`可以进行训练，因为不能nohup，所以只用来调式
 
 使用命令行进行训练  
@@ -52,5 +52,5 @@ export PYTHONPATH="$PWD"
 allennlp train -f config_path -s model_path --include-package textsegment.library  
 ```
 
-## 使用训练好的模型进行分词
+### 使用训练好的模型进行分词
 详见`text_segment.py`
